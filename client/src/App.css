@@ -1,0 +1,227 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #ffffff; /* white background */
+  color: #111111;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: #ffffff; /* ensure main app is white */
+}
+
+/*styling for nav bar*/
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index:1000;
+  background-color: #011f25;
+  color: #ffffff;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+}
+.navbar-inner {
+  /*to make content flush left and right */
+  width: 100%;
+  padding: 0.75rem 2.5rem; /* vertical padding */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* to push left and right apart */
+  box-sizing: border-box;
+}
+
+.navbar-logo a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.navbar-links{
+  display: flex;
+  gap: 1.25rem;
+}
+
+.navbar-links a {
+  color: #e5f5f7;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.navbar-links a:hover {
+  text-decoration: bold;
+}
+
+.layout-container {
+  max-width: 900px; 
+  margin: 2rem auto; /* center content */
+  padding: 0 1.5rem; /* side padding */
+  box-sizing: border-box;
+}
+.layout-container h2{
+  text-align: center;
+}
+
+
+#root {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+/*aligning for main page with events/filtering*/
+.filters{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+/*more styling for filters/search */
+.filters input,
+.filters select {
+  border: 1px solid #000000;
+  background-color: #f2f2f2;
+  color: #000000;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border-radius: 0;         
+  min-width: 180px;
+  box-sizing: border-box;
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+.filters input::placeholder {
+  color: #777777;
+}
+/*hover and focus*/
+.filters input:hover,
+.filters select:hover{
+  outline: none;
+  border-color: #000000;
+  background-color: #000000;
+  color: #ffffff;
+}
+.event-card{
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+/*table for each event */
+.event-table{
+  border: 1px solid #000000;
+  border-collapse: collapse;
+  margin: 0 auto 0.75rem; 
+  min-width: 320px;
+  max-width: 600px;
+  background-color: #f8f8f8; 
+}
+/* header row with title */
+.event-table th {
+  border: 1px solid #000000;
+  padding: 0.6rem 0.8rem;
+  background-color: #e4e4e4; /* subtle contrast */
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* body cells */
+.event-table td {
+  border: 1px solid #000000;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* left label column */
+.event-table .label-cell {
+  font-weight: 600;
+  width: 30%;
+  background-color: #f0f0f0;
+}
+
+
+/*event detail page */
+.event-detail-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  
+}
+.event-info{
+  display: flex;
+  justify-content: space-between;
+
+}
+/* styling for RSVPs page */
+.rsvp-page{
+  text-align: center;
+}
+
+/*Admin page styling */
+.event-form{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/*Styling for buttons */
+button {
+  border: 1px solid #000000;   
+  background-color: #f2f2f2;      
+  color: #000000;                
+  padding: 0.45rem 0.9rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 0;               /* square corners */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+/*hover settings */
+button:hover {
+  background-color: #000000;  
+  color: #ffffff;   /*white text */
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

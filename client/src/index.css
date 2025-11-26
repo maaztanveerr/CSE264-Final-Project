@@ -1,0 +1,9 @@
+/* letting App.css control colors/layout */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
