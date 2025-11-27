@@ -4,6 +4,7 @@ import { useEvents } from '../EventContext.jsx'
 import { useRsvp } from '../RsvpContext.jsx'
 import { useNavigate } from "react-router-dom";
 
+//Add weather and location data from API to this page!
 function EventDetailPage() {
     const { id } = useParams()
     const { getEventById } = useEvents()

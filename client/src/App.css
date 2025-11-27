@@ -60,12 +60,16 @@ html, body {
 
 .layout-container {
   max-width: 900px; 
-  margin: 2rem auto; /* center content */
+  margin: 1rem auto; /* center content */
   padding: 0 1.5rem; /* side padding */
   box-sizing: border-box;
 }
 .layout-container h2{
   text-align: center;
+}
+.layout-container h4{
+  text-align: center;
+  font-weight: lighter;
 }
 
 
@@ -192,8 +196,90 @@ html, body {
 .rsvp-page{
   text-align: center;
 }
+.rsvp-page h2 {
+  margin-bottom: 1rem;
+}
 
-/*Admin page styling */
+.rsvp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/*ADMIN PAGE STYLING---------- */
+.admin-page{
+  text-align: center;
+}
+.admin-heading {
+  margin: 1.5rem 0 0.75rem;
+}
+.admin-actions {
+  margin-bottom: 1rem;
+}
+/* main admin table */
+.admin-table {
+  margin: 0 auto 2rem;
+  border-collapse: collapse;
+  min-width: 800px;
+  background-color: #f8f8f8;
+  box-shadow: none;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid #000000;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* header row */
+.admin-table th {
+  background-color: #e4e4e4;
+  font-weight: 600;
+}
+.admin-table td:first-child {
+  text-align: left;
+}
+
+/*zebra striping */
+.admin-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/*spacing out columns more */
+.admin-table td:not(.actions-cell) {
+  padding-right: 2rem;
+}
+/* Making 5th column (buttons column) invisible */
+.admin-table td.admin-actions-cell,
+.admin-table th.admin-actions-header {
+  background-color: #ffffff !important; 
+  border: none !important;    
+  box-shadow: none !important;                 
+}
+
+/*remove the table's right border line behind the buttons */
+.admin-table td.admin-actions-cell {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+
+/* button spacing */
+.admin-actions-cell {
+  white-space: nowrap;
+}
+
+.admin-actions-cell button {
+  margin-left: 0.5rem;
+}
+
+
+
+/*event form styling */
 .event-form{
   display: flex;
   justify-content: space-between;
@@ -212,7 +298,7 @@ button {
   padding: 0.45rem 0.9rem;
   font-size: 0.95rem;
   cursor: pointer;
-  border-radius: 0;               /* square corners */
+  border-radius: 0;      /* square corners */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 /*hover settings */
