@@ -35,7 +35,7 @@ function AdminEventFormPage() {
   }
 
   return(
-    <div>
+    <div className="admin-form-page">
         <h2>{isEdit ? "Edit Event" : "Create Event"}</h2>
         <EventForm initialValues={existingEvent} onSubmit={handleSubmit}/>
     </div>

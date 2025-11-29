@@ -8,7 +8,10 @@ function NavBar(){
         
                 {/* Left side */}
                 <div className="navbar-logo">
-                <Link to="/events">EventBoard</Link>
+                    <a href="/">
+                        <img src="eblogo.png" alt="EventBoard Logo" className="eb-logo"/>
+                    </a>
+                    <Link to="/events">EventBoard</Link>
                 {/*add welcome (user) at top*/}
                 </div>
 
