@@ -7,7 +7,6 @@ import MyRsvpsPage from './pages/MyRsvpsPage.jsx'
 import AdminDashboardPage from './pages/AdminDashboardPage.jsx'
 import AdminEventFormPage from './pages/AdminEventFormPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
-import {currentUser} from './currentUser.js'
 import NavBar from './components/NavBar.jsx';
 import Layout from './components/Layout.jsx';
 

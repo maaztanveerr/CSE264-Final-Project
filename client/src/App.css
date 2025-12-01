@@ -348,6 +348,59 @@ html, body {
   margin-top: 0.5rem;
 }
 
+/* weather styling */
+.event-weather {
+  margin-top: 1.75rem;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+
+  /*  closer to map background */
+  background-color: #0f172a;      
+  color: #e5e7eb;
+
+  border: 1px solid #1f2937; /* softer border */
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.35);
+
+  /* make sure it lines up with the map width */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* keep this basic heading styling */
+.event-weather h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.weather-summary {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.weather-summary-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-size: 0.95rem;
+}
+
+.weather-label {
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+.weather-value {
+  opacity: 0.95;
+}
+
+.event-weather p {
+  margin: 0;
+}
+
+
 /*Styling for buttons */
 button {
   border: 1px solid #1f2429;
