@@ -3,6 +3,14 @@
 ## Dylan Serino | dts226
 ## Maaz Tanveer | mat927 
 
+Important Keys you NEED in the server ENV:
+POSTGRES_USERNAME=eventboard
+POSTGRES_PASSWORD=eventboard_lehigh
+
+Important Line (and the only one) you NEED in a new client ENV:
+VITE_OPENWEATHER_API_KEY=fa8382175a246cd46d81655de6f5ffd4
+
+
 
 This repo contains the boilerplate code for a full stack application using Express and React.  If you need a database table, please let your instructor know.
 
