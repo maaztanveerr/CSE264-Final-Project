@@ -1,9 +1,21 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { motion } from "framer-motion" // new animation library
 
-function EventCard({event}){
-    const formattedDate = new Date(event.start).toLocaleString();
-    return (
-        <div className="event-card">
+function EventCard({ event }) {
+  const formattedDate = new Date(event.start).toLocaleString();
+
+  return (
+    <motion.div
+      className="event-card"
+      // how the card looks when it first appears
+      initial={{ opacity: 0, y: 10 }}
+      // how it should look after the animation finishes
+      animate={{ opacity: 1, y: 0 }}
+      // small zoom-in on hover
+      whileHover={{ scale: 1.02 }}
+      // how fast / smooth the animation is
+      transition={{ duration: 0.2 }}
+    >
       <table className="event-table">
         <thead>
           <tr>
@@ -33,9 +45,9 @@ function EventCard({event}){
       <Link to={`/events/${event.id}`}>
         <button>View Details</button>
       </Link>
-    </div>
+    </motion.div>
 
-    )
+  )
 }
 
 export default EventCard

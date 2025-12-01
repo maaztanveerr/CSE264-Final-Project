@@ -27,7 +27,7 @@ function EventFilters({ filters, setFilters }) {
         type="date"
         value={filters.date || ""}
         onChange={(e) =>
-          setFilters({...filters, date: e.target.value})
+          setFilters({ ...filters, date: e.target.value})
         }
         />
     </div>
