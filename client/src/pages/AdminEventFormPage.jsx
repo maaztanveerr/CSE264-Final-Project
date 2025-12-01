@@ -1,8 +1,9 @@
 // src/pages/AdminEventFormPage.jsx
 import { useNavigate, useParams } from "react-router-dom"
 import { useEvents } from "../EventContext.jsx"
-import { currentUser } from "../currentUser.js"
+// import { currentUser } from "../currentUser.js"
 import EventForm from "../components/EventForm.jsx"
+import { useCurrentUser } from "../CurrentUserContext.jsx"
 
 
 function AdminEventFormPage() {
@@ -11,23 +12,33 @@ function AdminEventFormPage() {
   const isEdit = Boolean(id)
   const { getEventById, addEvent, updateEvent } = useEvents()
   const navigate = useNavigate()
+  const { currentUser, userLoading } = useCurrentUser();
 
-  if(currentUser.role !== "admin"){
-    return <p>You don't have permission to view this page.</p>
+  if (userLoading) {
+    return <p>Loading user...</p>;
+  }
+
+  if (!currentUser || currentUser.role !== "admin") {
+    return <p>You don't have permission to view this page.</p>;
   }
 
   const existingEvent = isEdit ? getEventById(id) : null
 
-  const handleSubmit = (formData) => {
-    if(isEdit){
-        updateEvent(id, formData)
-    }else{
-        const newEvent = addEvent(formData)
-        //then nav to new event detail when added
-        navigate(`/events/${newEvent.id}`)
-        return
+  // tiny changes: made it async and added error checking for that as well to fit in with everything else
+  const handleSubmit = async (formData) => {
+    try {
+      if(isEdit){
+        await updateEvent(id, formData)
+        // go back to admin dashboard after successful edit
+        navigate('/admin')
+      }else{ // create new event
+          const newEvent = await addEvent(formData)
+          //then nav to new event detail when added
+          navigate(`/events/${newEvent.id}`)
+      }
+    } catch (err) {
+      console.error('failed to save event', err)
     }
-    navigate('/admin')
   }
 
   if(isEdit && !existingEvent){

@@ -1,21 +1,22 @@
 // src/pages/EventListPage.jsx
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import EventFilters from '../components/EventFilters.jsx';
 import EventCard from '../components/EventCard.jsx'
 import {useEvents} from '../EventContext.jsx'
 
 
 function EventListPage() {
-    const { events } = useEvents()
-    const [filters, setFilters] = useState({ search: "", category: "", date: "", })
+    // getting events/loading/errors from context now
+    const { events, loading, error } = useEvents();
 
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
+    const [filters, setFilters] = useState({
+    search: "",
+    category: "",
+    date: "",
+    });
 
-
-    //later will wrap fetch() calls
-    if(loading) return <p>Loading events...</p>
-    if(error) return <p>Failed to load events.</p>
+    if (loading) return <p>Loading events...</p>;
+    if (error) return <p>Failed to load events.</p>;
 
     const filtered = events.filter(e => {
         const matchesSearch = e.title.toLowerCase().includes(filters.search.toLowerCase())

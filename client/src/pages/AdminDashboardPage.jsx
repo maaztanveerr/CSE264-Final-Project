@@ -1,12 +1,18 @@
 // src/pages/AdminDashboardPage.jsx
 import { Link } from "react-router-dom";
 import { useEvents } from "../EventContext.jsx";
-import { currentUser } from "../currentUser.js";
+// import { currentUser } from "../currentUser.js";
+import { useCurrentUser } from "../CurrentUserContext.jsx";
 
 function AdminDashboardPage() {
     const { events, deleteEvent } = useEvents();
+    const { currentUser, userLoading } = useCurrentUser();
 
-    if (currentUser.role !== "admin") {
+    if (userLoading) {
+        return <p>Loading user...</p>;
+    }
+
+    if (!currentUser || currentUser.role !== "admin") {
         return <p>You do not have permission to view this page.</p>;
     }
 
@@ -22,31 +28,41 @@ function AdminDashboardPage() {
 
             <table className="admin-table">
                 <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    {/* empty header cell for the buttons column */}
-                    <th className="admin-actions-header"></th>
-                </tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        {/* empty header cell for the buttons column */}
+                        <th className="admin-actions-header"></th>
+                    </tr>
                 </thead>
                 <tbody>
                     {events.map((e) => (
-                    <tr key={e.id}>
-                        <td>{e.title}</td>
-                        <td>{e.category}</td>
-                        <td>{new Date(e.start).toLocaleString()}</td>
-                        <td>{e.locationText}</td>
-                        {/* buttons in their own (rightmost) column */}
-                        <td className="admin-actions-cell">
-                            <Link to={`/admin/events/${e.id}/edit`}>
-                            <button>Edit</button>
-                            </Link>
-                            <button onClick={() => deleteEvent(e.id)}>Delete</button>
-                        </td>
-                    </tr>
-                ))}
+                        <tr key={e.id}>
+                            <td>{e.title}</td>
+                            <td>{e.category}</td>
+                            <td>{new Date(e.start).toLocaleString()}</td>
+                            <td>{e.locationText}</td>
+                            {/* buttons in their own (rightmost) column */}
+                            <td className="admin-actions-cell">
+                                <Link to={`/admin/events/${e.id}/edit`}>
+                                    <button>Edit</button>
+                                </Link>
+                                <button // again, only made it async to fit in with everything
+                                    onClick={async () => {
+                                        try {
+                                            await deleteEvent(e.id)
+                                        } catch (err) {
+                                            console.error('failed to delete event', err)
+                                        }
+                                    }}
+                                >
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
