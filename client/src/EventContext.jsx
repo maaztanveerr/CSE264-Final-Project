@@ -4,28 +4,27 @@ const API_BASE_URL = "http://localhost:3000"; // backend express server
 
 const EventContext = createContext()
 
-// 
-// events come from the backend api, not a hardcoded array but for now since no db permission, we use this as a backup
-const initialEvents = [ //edit this to work w database API to get events
-  {
-    id: "1",
-    title: "Hackathon Night",
-    description: "48-hour coding event.",
-    start: "2025-11-30T18:00:00",
-    end: "2025-11-30T23:00:00",
-    category: "Engineering",
-    locationText: "STEPS Lehigh University",
-  },
-  {
-    id: "2",
-    title: "Business Club Networking",
-    description: "Meet alumni and recruiters.",
-    start: "2025-12-02T19:00:00",
-    end: "2025-12-02T21:00:00",
-    category: "Business",
-    locationText: "Rauch Business Center",
-  },
-]
+// // events come from the backend api, not a hardcoded array now
+// const initialEvents = [ //edit this to work w database API to get events
+//   {
+//     id: "1",
+//     title: "Hackathon Night",
+//     description: "48-hour coding event.",
+//     start: "2025-11-30T18:00:00",
+//     end: "2025-11-30T23:00:00",
+//     category: "Engineering",
+//     locationText: "STEPS Lehigh University",
+//   },
+//   {
+//     id: "2",
+//     title: "Business Club Networking",
+//     description: "Meet alumni and recruiters.",
+//     start: "2025-12-02T19:00:00",
+//     end: "2025-12-02T21:00:00",
+//     category: "Business",
+//     locationText: "Rauch Business Center",
+//   },
+// ]
 
 export function EventProvider({ children }) {
   const [events, setEvents] = useState([]); // start with empty list
@@ -55,16 +54,16 @@ export function EventProvider({ children }) {
 
         setEvents(normalized);
       } catch (err) { 
-        console.error("error loading events, using backup events", err);
+        console.error("error loading events", err);
         // instead of showing just an error use the backup
-        const normalized = initialEvents.map((e) => ({
-          ...e,
-          id: e.id.toString(),
-        }));
-        setEvents(normalized);
+        // const normalized = initialEvents.map((e) => ({
+        //   ...e,
+        //   id: e.id.toString(),
+        // }));
+        // setEvents(normalized);
 
-        // no "fatal" error for the UI, so leave error as null
-        setError(null);
+        // // no "fatal" error for the UI, so leave error as null
+        setError("Failed to load events from server");
       } finally {
         setLoading(false);
       }
