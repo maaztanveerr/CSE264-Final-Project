@@ -1,444 +1,49 @@
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #e6e8ea; /* slightly cooler gray, no beige */
-  color: hsl(214, 12%, 12%); /* very dark gray (almost black) */
-}
+/* =========================================================
+   GLOBAL BASE STYLES
+   ========================================================= */
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-.App {
-  min-height: 100vh;
-  background-color: transparent;
-
-}
-
-
-
-/*styling for nav bar*/
-.navbar{
-  position: sticky;
-  top: 0;
-  z-index:1000;
-  background-color: #0a1a22; /* deeper charcoal-teal */
-  color: #ffffff;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-.navbar-inner {
-  width: 100%;
-  padding: 0.75rem 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.navbar-logo a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-.navbar-links{
-  display: flex;
-  gap: 1.25rem;
-}
-
-.navbar-links a {
-  color: #dfeff2; /* cooler gray link */
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.navbar-links a:hover {
-  text-decoration: underline;
-}
-
-.layout-container {
-  max-width: 900px; 
-  margin: 1rem auto;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
-}
-.layout-container h2{
-  text-align: center;
-  color: #0a1a22; /* match dark charcoal */
-}
-.layout-container h4{
-  text-align: center;
-  font-weight: lighter;
-  color: #3a4047; /* subtle gray */
-}
-
+/* Make the app fill the viewport */
+html,
+body,
 #root {
-  margin: 0 auto;
-  padding: 0;
+  height: 100%;
 }
 
-
-
-
-.card {
-  padding: 2em;
-}
-/*logo styling */
-.eb-logo{
-  height: 40px;      /* adjust size here */
-  width: auto;
-  margin-right: 12px;
-  vertical-align: middle;
-}
-
-/*aligning for main page with events/filtering*/
-.filters{
+/* Dark gradient background + base typography */
+body {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 1rem 0 1.5rem;
-}
-
-/*more styling for filters/search */
-.filters input,
-.filters select {
-  border: 1px solid #b7bcc3;          /* medium cool gray */
-  background-color: #ffffff;
-  color: #2a3036;
-  padding: 0.4rem 0.7rem;
-  font-size: 0.95rem;
-  border-radius: 6px;
-  min-width: 180px;
-  box-shadow: 0 1px 3px rgba(20, 23, 28, 0.12);
-  transition: background-color 0.2s ease, color 0.2s ease,
-              border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-}
-.filters input::placeholder {
-  color: #8a8f97;
-}
-
-.filters input:hover,
-.filters select:hover,
-.filters input:focus,
-.filters select:focus {
-  outline: none;
-  border-color: #0a1a22; /* charcoal */
-  background-color: #dfe3e6; /* light cool gray */
-  color: #0a1a22;
-  box-shadow: 0 2px 6px rgba(20, 23, 28, 0.2);
-  transform: translateY(-1px);
-}
-
-.event-card{
-  text-align: center;
-  margin-bottom: 1.75rem;
-  background-color: #f9f9fa; /* very light gray */
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(20, 23, 28, 0.16);
-  padding: 0.75rem 0 1.25rem;
-}
-
-/*table for each event */
-.event-table{
-  border: 1px solid #b7bcc3;
-  border-collapse: collapse;
-  margin: 0 auto 0.75rem; 
-  min-width: 320px;
-  max-width: 600px;
-  background-color: #f9f9fa; 
-}
-
-/* header row with title */
-.event-table th {
-  border: 1px solid #b7bcc3;
-  padding: 0.6rem 0.8rem;
-  background-color: #d5d8dc; /* medium gray */
-  text-align: center;
-  font-size: 1.05rem;
-  color: #0a1a22; /* charcoal */
-}
-
-/* body cells */
-.event-table td {
-  border: 1px solid #b7bcc3;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.95rem;
-  color: #2e3338;
-}
-
-/* left label column */
-.event-table .label-cell {
-  font-weight: 600;
-  width: 30%;
-  background-color: #e3e5e8; /* cool gray */
-}
-
-/*event detail page */
-.event-detail-buttons{
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.event-info{
-  display: flex;
-  justify-content: space-between;
-}
-
-/* styling for RSVPs page */
-.rsvp-page{
-  text-align: center;
-}
-.rsvp-page h2 {
-  margin-bottom: 1rem;
-  color: #0a1a22;
-}
-
-.rsvp-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-/*ADMIN PAGE STYLING---------- */
-.admin-page{
-  text-align: center;
-}
-.admin-heading {
-  margin: 1.5rem 0 0.75rem;
-  color: #0a1a22;
-}
-.admin-actions {
-  margin-bottom: 1rem;
-}
-
-/* main admin table */
-.admin-table {
-  margin: 0 auto 2rem;
-  border-collapse: collapse;
-  min-width: 800px;
-  background-color: #f9f9fa;
-  border: 1px solid #b7bcc3;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(20, 23, 28, 0.18);
-  overflow: hidden;
-}
-.admin-table th,
-.admin-table td {
-  border: 1px solid #b7bcc3;
-  padding: 0.75rem 1.25rem;
-  font-size: 0.95rem;
-  vertical-align: middle;
-  text-align: center;
-}
-
-/* header row */
-.admin-table th {
-  background-color: #d5d8dc; /* cleaner gray */
-  font-weight: 600;
-  color: #0a1a22;
-}
-
-.admin-table td:first-child {
-  text-align: left;
-}
-
-/*zebra striping */
-.admin-table tbody tr:nth-child(even) {
-  background-color: #eef0f2;
-}
-
-/*spacing out columns more */
-.admin-table td:not(.admin-actions-cell) {
-  padding-right: 2rem;
-}
-
-/* invisible button column but cooler gray background now */
-.admin-table td.admin-actions-cell,
-.admin-table th.admin-actions-header {
-  background-color: #e6e8ea !important;
-  border: none !important;    
-  box-shadow: none !important;                 
-}
-.admin-table td.admin-actions-cell {
-  border-left: none !important;
-  border-right: none !important;
-}
-.admin-actions-cell {
-  white-space: nowrap;
-}
-.admin-actions-cell button {
-  margin-left: 0.5rem;
-}
-
-/*event form/admin form styling */
-.admin-form-page{
-  text-align: center;
-}
-.admin-form-page h2 {
-  margin-top: 1.25rem;
-  margin-bottom: 0.75rem;
-  color: #0a1a22;
-}
-
-/*event form styling */
-.event-form {
-  max-width: 650px;
-  margin: 1.5rem auto 3rem;
-  padding: 1.5rem 1.75rem;
-  background-color: #f9f9fa; 
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(20, 23, 28, 0.18);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.event-form label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-weight: 600;
-  color: #0a1a22;
-  font-size: 0.95rem;
-}
-
-.event-form input,
-.event-form textarea,
-.event-form select {
-  margin-top: 0.25rem;
-  width: 100%;
-  border: 1px solid #b7bcc3;
-  border-radius: 6px;
-  padding: 0.45rem 0.65rem;
-  font-size: 0.95rem;
-  color: #2e3338;
-  background-color: #ffffff;
-  box-shadow: inset 0 1px 3px rgba(20, 23, 28, 0.12);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease,
-              background-color 0.2s ease, transform 0.1s ease;
-}
-
-.event-form input:hover,
-.event-form textarea:hover,
-.event-form select:hover,
-.event-form input:focus,
-.event-form textarea:focus,
-.event-form select:focus {
-  outline: none;
-  border-color: #0a1a22;
-  background-color: #dfe3e6;
-  box-shadow: inset 0 1px 3px rgba(20, 23, 28, 0.22);
-  transform: translateY(-1px);
-}
-
-.event-form textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-.event-form button[type="submit"] {
-  align-self: flex-end;
-  margin-top: 0.5rem;
-}
-
-/* weather styling */
-.event-weather {
-  margin-top: 1.75rem;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-
-  /*  closer to map background */
-  background-color: #0f172a;      
-  color: #e5e7eb;
-
-  border: 1px solid #1f2937; /* softer border */
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.35);
-
-  /* make sure it lines up with the map width */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* keep this basic heading styling */
-.event-weather h3 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.weather-summary {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.25rem;
-}
-
-.weather-summary-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  font-size: 0.95rem;
-}
-
-.weather-label {
-  font-weight: 600;
-  margin-right: 0.35rem;
-}
-
-.weather-value {
-  opacity: 0.95;
-}
-
-.event-weather p {
   margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #060b23 0%, #020617 45%, #000 100%);
+  background-attachment: fixed;
+  color: #e5e7eb;
 }
 
-
-/*Styling for buttons */
-button {
-  border: 1px solid #1f2429;
-  background-color: #e3e5e8;
-  color: #1a1d21;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(20, 23, 28, 0.18);
-  transition: background-color 0.2s ease, color 0.2s ease,
-              box-shadow 0.2s ease, transform 0.1s ease;
+/* Root wrapper used in App.jsx */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-button:hover {
-  background-color: #1f2429;
-  color: #ffffff;
-  box-shadow: 0 3px 8px rgba(20, 23, 28, 0.26);
-  transform: translateY(-1px);
+/* Main content container (Layout.jsx) */
+.layout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
 }
 
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-}
-
-/* styling for page transitions */
+/* Simple fade / slide transition for route changes */
 .page-transition {
-  animation: pageFadeIn 260ms ease-out;
+  animation: fadeSlideIn 0.4s ease-out;
 }
 
-/* keyframes for page transition */
-@keyframes pageFadeIn {
+@keyframes fadeSlideIn {
   from {
     opacity: 0;
-    transform: translateY(9px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -446,6 +51,101 @@ button:disabled {
   }
 }
 
+/* Remove default link styling (we’ll restyle as needed) */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Generic table reset */
+table {
+  border-collapse: collapse;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(
+    90deg,
+    #020617 0%,
+    #020617 30%,
+    #030712 55%,
+    #020617 100%
+  );
+  border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.35rem 1.5rem 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left side: logo + app name */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: #f9fafb;
+}
+
+.navbar-logo img.eb-logo {
+  height: 32px;
+  width: auto;
+}
+
+/* Right side: links and greeting */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Style the <Link> items in the navbar */
+.navbar-links a {
+  position: relative;
+  color: #e5e7eb;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding-bottom: 0.1rem;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #19c37d, #22c55e);
+  transition: width 0.18s ease-out;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.navbar-greeting {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Login form on the right */
 .navbar-login-form {
   display: flex;
   align-items: center;
@@ -453,29 +153,559 @@ button:disabled {
 }
 
 .navbar-login-input {
-  padding: 0.25rem 0.4rem;
-  border-radius: 4px;
-  border: 1px solid #d1d5db;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
   font-size: 0.85rem;
+  min-width: 180px;
 }
 
-.navbar-button {
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+.navbar-login-input::placeholder {
+  color: #6b7280;
+}
+
+.navbar-login-input:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+
+/* Shared navbar buttons (Log in / Log out) */
+.navbar-button,
+.navbar-logout-button {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
   border: none;
-  background-color: #111827;
-  color: white;
-  font-size: 0.85rem;
+  background: linear-gradient(135deg, #19c37d, #18a769);
+  color: #020617;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
   cursor: pointer;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.7);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
-.navbar-button:disabled {
-  opacity: 0.7;
-  cursor: default;
+.navbar-button:hover,
+.navbar-logout-button:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 24px rgba(34, 197, 94, 1);
+  filter: brightness(1.05);
 }
 
-.navbar-error {
-  margin-left: 0.75rem;
-  font-size: 0.8rem;
-  color: #f87171; /* red-ish */
+/* =========================================================
+   EVENTS LIST PAGE and FILTERS*/
+
+/* Page heading / subtitle */
+.events-page-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.events-page-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+}
+
+.events-page-header p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+/* Filter bar */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+/* Styling  all the  filter controls inside the filters bar */
+.filters input,
+.filters select {
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  min-width: 160px;
+}
+
+/* Placeholder color for the search box */
+.filters input::placeholder {
+  color: #6b7280;
+}
+
+/* Focus glow */
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+
+
+/* Shared styling for filter controls */
+.search-input,
+.category-select,
+.date-input {
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  min-width: 160px;
+}
+
+.search-input::placeholder {
+  color: #6b7280;
+}
+
+.search-input:focus,
+.category-select:focus,
+.date-input:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+
+/* Event cards grid */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.25rem; /* a little more spacing so rows don't visually overlap */
+  margin-bottom: 2.5rem;
+}
+
+/* =========================================================
+   GENERIC CARDS & BUTTONS*/
+
+.event-card,
+.rsvp-card,
+.admin-card {
+  background: radial-gradient(circle at top left, #151c2e 0%, #090f1f 45%, #050816 100%);
+  border-radius: 20px;
+  padding: 1.75rem 1.75rem 1.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Table inside event cards */
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.event-table thead th {
+  padding: 0.6rem 0.75rem 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #f9fafb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.55);
+}
+
+.event-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.85);
+}
+
+.event-table td:first-child {
+  width: 30%;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Bottom-right action row shared by all cards */
+.card-actions-right,
+.admin-card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* ---- Button styles ---- */
+button {
+  font-family: inherit;
+}
+
+/* Glowing green primary */
+.primary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem;
+  background: linear-gradient(135deg, #19c37d, #18a769);
+  color: #020617;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(25, 195, 125, 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 32px rgba(25, 195, 125, 1);
+  filter: brightness(1.05);
+}
+
+/* Neutral outlined secondary */
+.secondary-button {
+  border-radius: 999px;
+  padding: 0.48rem 1.2rem;
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  color: #e5e7eb;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.secondary-button:hover {
+  background: rgba(148, 163, 184, 0.15);
+  color: #f9fafb;
+  transform: translateY(-1px);
+}
+
+/* Destructive red */
+.danger-button {
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem;
+  border: none;
+  background: linear-gradient(135deg, #fb7185, #f43f5e);
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(248, 113, 113, 0.85);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.danger-button:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 30px rgba(248, 113, 113, 1);
+  filter: brightness(1.04);
+}
+
+/* =========================================================
+   EVENT DETAIL PAGE
+   ========================================================= */
+
+/* Add event-detail-card to the root div in EventDetailPage */
+.event-detail-card {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 2rem 2.25rem;
+  border-radius: 20px;
+  background: radial-gradient(circle at top left, #151c2e 0%, #080f1f 40%, #040814 100%);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #e5e7eb;
+}
+
+/* reuse event-table styles but allow nesting */
+.event-detail-card .event-table {
+  margin-bottom: 1.75rem;
+}
+
+/* Map + weather side-by-side */
+.location-and-weather {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+/* Map container card */
+.map-card {
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #171f33 0%, #091021 45%, #050816 100%);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9);
+}
+
+/* Weather block */
+.event-weather {
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #171f33 0%, #091021 45%, #050816 100%);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9);
+}
+
+.event-weather h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #f9fafb;
+}
+
+.event-weather p {
+  margin: 0.3rem 0;
+  color: #e5e7eb;
+}
+
+/* Back + RSVP buttons container */
+.event-detail-buttons {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9rem;
+}
+
+/* Responsive: stack map + weather on narrow screens */
+@media (max-width: 900px) {
+  .location-and-weather {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* =========================================================
+   ADMIN DASHBOARD PAGE
+   ========================================================= */
+
+.admin-page {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 3rem;
+  color: #e5e7eb;
+}
+
+.admin-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+}
+
+.admin-subtitle {
+  margin: 0.3rem 0 0;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+/* Create new event button */
+.admin-actions button,
+.admin-create-button {
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #19c37d, #18a769);
+  color: #020617;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(25, 195, 125, 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.admin-actions button:hover,
+.admin-create-button:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 32px rgba(25, 195, 125, 1);
+  filter: brightness(1.05);
+}
+
+/* Admin table styled so each row looks like its own card */
+.admin-table {
+  width: 100%;
+  border-collapse: separate;   
+  border-spacing: 0 12px;     
+  margin-top: 1.5rem;
+  background: transparent;
+}
+
+.admin-table thead th {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.7);
+}
+
+/* Each row as a card */
+.admin-table tbody tr {
+  background: radial-gradient(circle at top left, #151c2e 0%, #090f1f 45%, #050816 100%);
+  border-radius: 16px;
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+.admin-table tbody td {
+  padding: 0.9rem 0.9rem;
+  border-bottom: none;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+/* Remove old zebra striping */
+.admin-table tbody tr:nth-child(even),
+.admin-table tbody tr:nth-child(odd) {
+  background: radial-gradient(circle at top left, #151c2e 0%, #090f1f 45%, #050816 100%);
+}
+
+/* Actions cell (Edit / Delete) aligned right with some spacing */
+.admin-actions-cell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.admin-actions-cell .secondary-button {
+  margin-right: 0.5rem;
+}
+
+/* Admin buttons */
+.admin-edit-button {
+  padding: 0.45rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: transparent;
+  color: #e5e7eb;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.admin-edit-button:hover {
+  background: rgba(148, 163, 184, 0.18);
+  transform: translateY(-1px);
+}
+
+.admin-delete-button {
+  padding: 0.45rem 1.35rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #fb7185, #f43f5e);
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(248, 113, 113, 0.85);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.admin-delete-button:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 26px rgba(248, 113, 113, 1);
+  filter: brightness(1.04);
+}
+
+@media (max-width: 768px) {
+  .admin-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-card-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   MY RSVPS PAGE
+   ========================================================= */
+
+.rsvp-page {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 3rem;
+  color: #e5e7eb;
+}
+
+.rsvp-page h2 {
+  text-align: left;
+  margin-bottom: 1.75rem;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+}
+
+/* Reuse same grid layout as main events list */
+.rsvp-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.25rem;
+}
+
+/* =========================================================
+   EVENT FORM / ADMIN FORM PAGES
+   ========================================================= */
+
+.event-form-page {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+.event-form input,
+.event-form textarea,
+.event-form select {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.event-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.event-form input:focus,
+.event-form textarea:focus,
+.event-form select:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+
+/* =========================================================
+   RESPONSIVE TWEAKS
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .layout-container {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .event-card,
+  .rsvp-card,
+  .admin-card {
+    padding: 1.4rem 1.4rem 1.2rem;
+  }
 }

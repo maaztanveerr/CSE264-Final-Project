@@ -39,8 +39,7 @@ function EventListPage() {
 
     return (
         <>
-            <h2>Welcome to EventBoard! View upcoming campus events below.</h2>
-            <h4>Press "View Details" to see more information and RSVP.</h4>
+            <h2>Browse, filter, and RSVP to what's happening on campus.</h2>
             <EventFilters filters={filters} setFilters={setFilters} />
             <h2>Upcoming Events</h2>
             <div className="event-grid">

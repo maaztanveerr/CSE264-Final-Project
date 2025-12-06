@@ -110,7 +110,7 @@ function EventDetailPage() {
 
 
   return (
-    <div className="event-detail">
+    <div className="event-detail event-detail-card">
       <table className="event-table">
         <thead>
           <tr>
@@ -138,8 +138,8 @@ function EventDetailPage() {
       </table>
 
       <div className="event-detail-buttons">
-        <button onClick={() => navigate(-1)}>Back</button>
-        <button onClick={handleRsvpClick}>
+        <button type="button" className="secondary-button" onClick={() => navigate(-1)}>Back</button>
+        <button type="button" className="primary-button" onClick={handleRsvpClick}>
           {isGoing ? "Cancel RSVP" : "RSVP"}
         </button>
       </div>

@@ -42,9 +42,12 @@ function EventCard({ event }) {
         </tbody>
       </table>
 
-      <Link to={`/events/${event.id}`}>
-        <button>View Details</button>
-      </Link>
+      <div className="card-actions-right">
+        <Link to={`/events/${event.id}`}>
+          <button type="button" className="primary-button">View Details</button>
+        </Link>
+</div>
+
     </motion.div>
 
   )

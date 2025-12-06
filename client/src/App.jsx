@@ -13,7 +13,7 @@ import Layout from './components/Layout.jsx';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app-root">
         {/*Navigation bar*/}
         <NavBar />
         {/*paths for different pages*/}

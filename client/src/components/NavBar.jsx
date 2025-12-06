@@ -89,5 +89,3 @@ function NavBar() {
 }
 
 export default NavBar
-
-// FIX

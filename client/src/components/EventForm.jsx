@@ -87,7 +87,7 @@ function EventForm({initialValues, onSubmit }){
                 required
                 />
             </label>
-            <button type="submit">Save Event</button>
+            <button type="submit" className="primary-button">Save Event</button>
 
         </form>
     )

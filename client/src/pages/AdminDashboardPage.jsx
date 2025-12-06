@@ -47,9 +47,11 @@ function AdminDashboardPage() {
                             {/* buttons in their own (rightmost) column */}
                             <td className="admin-actions-cell">
                                 <Link to={`/admin/events/${e.id}/edit`}>
-                                    <button>Edit</button>
+                                    <button type="button"
+                                    className="secondary-button admin-edit-button">Edit</button>
                                 </Link>
-                                <button // again, only made it async to fit in with everything
+                                <button  type="button"
+                                    className="danger-button admin-delete-button" // again, only made it async to fit in with everything
                                     onClick={async () => {
                                         try {
                                             await deleteEvent(e.id)
